@@ -1,0 +1,112 @@
+!
+!
+
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R9
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+no ip icmp rate-limit unreachable
+!
+!
+ip cef
+no ip domain lookup
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip tcp synwait-time 5
+! 
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ shutdown
+ duplex half
+!
+interface Serial1/0
+ ip address 192.168.98.2 255.255.255.252
+ serial restart-delay 0
+!
+interface Serial1/1
+ ip address 192.168.79.2 255.255.255.252
+ serial restart-delay 0
+!
+interface Serial1/2
+ ip address 172.16.29.1 255.255.255.252
+ serial restart-delay 0
+ clock rate 64000
+!
+interface Serial1/3
+ ip address 10.69.0.2 255.255.255.252
+ serial restart-delay 0
+!
+router bgp 89
+ no synchronization
+ bgp log-neighbor-changes
+ network 192.168.98.0 mask 255.255.255.252
+ neighbor 10.69.0.0 remote-as 3
+ neighbor 172.16.29.0 remote-as 22
+ neighbor 192.168.79.0 remote-as 3
+ neighbor 192.168.98.0 remote-as 89
+ no auto-summary
+!
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+ stopbits 1
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+ stopbits 1
+line vty 0 4
+ login
+!
+!
+end
