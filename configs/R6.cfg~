@@ -1,5 +1,7 @@
 !
 !
+!
+!
 
 !
 version 12.4
@@ -89,9 +91,11 @@ interface Serial2/3
 !
 router rip
  version 2
+ redistribute bgp 3 metric 1
  passive-interface Serial1/3
  passive-interface Serial2/0
  network 10.0.0.0
+ no auto-summary
 !
 router bgp 3
  no synchronization
@@ -100,6 +104,9 @@ router bgp 3
  network 10.56.0.0 mask 255.255.255.252
  network 10.67.0.0 mask 255.255.255.252
  redistribute rip
+ neighbor 10.36.0.2 remote-as 3
+ neighbor 10.56.0.2 remote-as 3
+ neighbor 10.67.0.2 remote-as 3
  neighbor 10.69.0.2 remote-as 89
  neighbor 192.168.68.1 remote-as 89
  no auto-summary

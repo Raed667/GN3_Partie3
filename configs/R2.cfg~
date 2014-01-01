@@ -1,6 +1,13 @@
 !
 !
 !
+!
+!
+!
+!
+!
+!
+!
 
 !
 version 12.4
@@ -69,9 +76,9 @@ interface Serial1/3
 router bgp 22
  no synchronization
  bgp log-neighbor-changes
- neighbor 172.16.12.0 remote-as 11
- neighbor 172.16.24.0 remote-as 3
- neighbor 172.16.29.0 remote-as 89
+ neighbor 172.16.12.1 remote-as 11
+ neighbor 172.16.24.1 remote-as 3
+ neighbor 172.16.29.1 remote-as 89
  no auto-summary
 !
 !
