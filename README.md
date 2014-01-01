@@ -13,3 +13,18 @@ Partie 3 : BGP (Border Gateway Protocol)
   les AS.
   
   - Faites des tests de connectivité (ping) entre tous les AS.
+
+  HowTo
+  ===
+  
+  In 'Topology.net' file:
+  - Chnage the 'workingdir = /tmp' to whaterver you are using (This depends on your OS)
+  - Change the 
+  '[[7200]]
+          image = /home/raed/Documents/img_gns/c7200-mz.124-13b.image'
+
+  To an apropriate image depending on what you are using.
+
+  - That's it, you are ready. 
+
+  -If you have an issue please report it.
