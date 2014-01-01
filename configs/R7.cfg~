@@ -1,6 +1,9 @@
 !
 !
 !
+!
+!
+!
 
 !
 version 12.4
@@ -63,7 +66,7 @@ interface Serial1/2
  clock rate 64000
 !
 interface Serial1/3
- ip address 192.168.72.1 255.255.255.252
+ ip address 192.168.79.1 255.255.255.252
  serial restart-delay 0
  clock rate 64000
 !
